@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora Do Dia</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="container">
+        <div id="lblTitulo">
+            <h1>Hora do Dia</h1>
+        </div>
+        <div id="boxHora">
+            <p id="lblhora"></p>
+            <div id="imgHora">
+                <img src="" alt="HoradoDia" >
+            </div>
+        </div>
+        <p id="lblRodape">Isaque Gabriel</p>
+    </div>
+    <script>
+        let img = document.getElementsByTagName('img')[0]
+        let agora = new Date()
+        let HoraDia = agora.getHours()
+
+        document.getElementById('lblhora').innerText = `Agora são ${HoraDia} horas`
+        
+        if (HoraDia < 12){
+            img.src = "./img/manhã.webp"
+            document.body.style.background = "#6767ff"
+            document.getElementById('lblTitulo').style.color = "white"
+            document.getElementById('lblRodape').style.color = "white"
+        }else if (HoraDia <= 18){
+            img.src = "./img/tarde.webp"
+            document.body.style.background = "#ff9d2c"
+        }else{
+            img.src = "./img/noite.jpg"
+            document.getElementById('lblTitulo').style.color = "white"
+            document.getElementById('lblRodape').style.color = "white"
+            document.body.style.background = "#0b1257"
+        }
+    </script>
+</body>
+</html>
